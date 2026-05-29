@@ -18,7 +18,15 @@ spring:
                             - OPTIONS
                         allowedHeaders: "*"
             routes:
-                - id: ms-vehiculos
-                  uri: http://localhost:8095
+                #usuarios
+                - id: ms-usuarios
+                  uri: http://localhost:8085
                   predicates:
-                    - Path=/api/v2/vehiculos**
+                    - Path=/api/v2/usuarios/**
+
+                #login
+                - id: ms-login
+                  uri: http://localhost:8094
+                  predicates:
+                    - Path=/api/v2/auth/**
+                    - Path=/api/v2/login/**
