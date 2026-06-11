@@ -1,88 +1,93 @@
-<div class="dashboard-wrapper">
-    <h1>HOLA MUNDO</h1>
-  
-  <div class="store-header">
+<div class="dashboard-carhub">
 
-    <div class="brand-container">
-      <h2>Car<span style="color: #3b82f6;">Hub</span></h2>
-      <p class="subtitle">Bienvenidos a CarHub, donde el auto de tus sueños puede estar a un click de distancia</p>
+  <header class="dashboard-carhub-header">
+    <div class="logo">
+      <h2>CAR<span>HUB</span></h2>
+      <p class="tagline">// terminal_concesionaria</p>
     </div>
 
-    <div class="user-actions">
-      <button class="btn-logout">Cerrar Sesión</button>
+    <div class="estado-sistema">
+      <span class ="status-indicador animate-pulse"></span>
+      <span class="status-text">Sistema en línea</span>
     </div>
 
-  </div>
+    <div class="zona-auth">
+      <button class="btn-carhub-logout" (click)="logout()">Cerrar Sesion</button>
+    </div>
+  </header>
 
-  <div class="store-layout">
-    
-    <aside class="filters-sidebar">
-      <h3>Filtros de Búsqueda</h3>
-      
-      <div class="filter-group">
+  <main class="carhub-layout">
+
+    <aside class="carhub-busqueda">
+      <h3>Parametros de Busqueda</h3>
+
+      <div class="carhub-filtros">
         <h4>Marca</h4>
-        <div class="checkbox-list">
-          <label><input type="checkbox" checked> Toyota</label>
-          <label><input type="checkbox" checked> Subaru</label>
-          <label><input type="checkbox" checked> Nissan</label>
+        <div class="filtros-marca">
+          <label><input type="checkbox" name="marca" value="Toyota"> Toyota</label>
+          <label><input type="checkbox" name="marca" value="Honda"> Honda</label>
+          <label><input type="checkbox" name="marca" value="Ford"> Ford</label>
+          <label><input type="checkbox" name="marca" value="Chevrolet"> Chevrolet</label>
         </div>
       </div>
 
-      <div class="filter-group">
-        <h4>Año</h4>
-        <div class="price-inputs">
-          <input type="number" placeholder="Min" />
-          <span class="separator">-</span>
-          <input type="number" placeholder="Max" />
+      <div class="carhub-filtros">
+        <h4>Modelo de Vehículo</h4>
+        <div class="filtros-modelo">
+          <label><input type="checkbox" name="modelo" value="Camry"> Camry</label>
+          <label><input type="checkbox" name="modelo" value="Civic"> Civic</label>
+          <label><input type="checkbox" name="modelo" value="F-150"> F-150</label>
+          <label><input type="checkbox" name="modelo" value="Silverado"> Silverado</label>
         </div>
       </div>
 
-      <div class="filter-group">
+      <div class="carhub-filtros">
         <h4>Precio</h4>
-        <div class="price-inputs">
-          <input type="text" placeholder="$2.00" />
-          <span class="separator">-</span>
-          <input type="text" placeholder="$100.00" />
+        <div class="filtros-precio">
+          <input type="text" placeholder="$1.000.000" /> <!--precio minimo-->
+          <span class="precio-separador">//</span>
+          <input type="text" placeholder="$10.000.000" /> <!--precio maximo-->
         </div>
       </div>
     </aside>
+    
+    <section class="carhub-catalogo">
+      <h3>Resultados de Búsqueda</h3>
 
-    <section class="catalog-section">
-      <h3 class="section-title">Catálogo Destacado</h3>
-      
-      <div class="products-grid">
+      <div class="resultados">
+        <div class="carhub-autos">
+          <div class="auto-card">
+            <img src="assets/camry.jpg" alt="Toyota Camry">
+            <h4>Toyota Camry</h4>
+            <p>Precio: $3.500.000</p>
+            <button class="btn-carhub-detalles">Ver Detalles</button>
+          </div>
+
+          <div class="auto-card">
+            <img src="assets/civic.jpg" alt="Honda Civic">
+            <h4>Honda Civic</h4>
+            <p>Precio: $2.500.000</p>
+            <button class="btn-carhub-detalles">Ver Detalles</button>
+          </div>
+
+          <div class="auto-card">
+            <img src="assets/f150.jpg" alt="Ford F-150">
+            <h4>Ford F-150</h4>
+            <p>Precio: $3.500.000</p>
+            <button class="btn-carhub-detalles">Ver Detalles</button>
+          </div>
+
+          <div class="auto-card">
+            <img src="assets/silverado.jpg" alt="Chevrolet Silverado">
+            <h4>Chevrolet Silverado</h4>
+            <p>Precio: $4.750.000</p>
+            <button class="btn-carhub-detalles">Ver Detalles</button>
+          </div>
         
-        <div class="product-card">
-          <div class="product-img-placeholder">🏎️</div>
-          <div class="product-info">
-            <h4>Toyota</h4>
-            <p class="price">$2.500.000 CLP</p>
-            <button class="btn-details">Ver Detalles</button>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img-placeholder">🏎️</div>
-          <div class="product-info">
-            <h4>Subaru</h4>
-            <p class="price">$3.000.000 CLP</p>
-            <button class="btn-details">Ver Detalles</button>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img-placeholder">🚙</div>
-          <div class="product-info">
-            <h4>Nissan</h4>
-            <p class="price">$2.750.000 CLP</p>
-            <button class="btn-details">Ver Detalles</button>
-          </div>
-        </div>
-
       </div>
+     </div>
     </section>
-
-  </div>
+  </main>
 </div>
 
-<app-footer-component></app-footer-component> //esto permite que el footer aparezca debajo la seccion anterior.
+<app-footer-component></app-footer-component>

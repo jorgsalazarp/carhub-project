@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 
-@RestController
-@RequestMapping("/api/v1")
-@CrossOrigin(origins = "http://localhost:4200")  
+@RestController //definicion de clase controladora.
+@RequestMapping("/api/v1") //ruta base para acceder a los endpoints del controlador.
+@CrossOrigin(origins = "http://localhost:4200") //endpoint del frontend, con los permisos para consumir servicios en el backend.
 
 
 public class usuarioController {
@@ -35,12 +35,10 @@ public class usuarioController {
         this.usuarioRepository = usuarioRepository;
     }
 
-
-
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/usuarios")
+    @GetMapping("/usuarios") //se asigna la solicitud HTTP, usado para consultar o leer informacion de un recurso especifico (GET).
     public List<Usuario> listarUsuarios(){
         return usuarioService.obtenerUsuarios();
     }
@@ -50,7 +48,7 @@ public class usuarioController {
         return usuarioService.obtenerUsuarioPorId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @DeleteMapping("/usuarios/{id}")
+    @DeleteMapping("/usuarios/{id}") //Se usa para eliminar un recurso especifico (DELETE).
     public ResponseEntity<String> eliminarUsuarioPorId(@PathVariable("id") Integer id){
         boolean usuarioEliminado = usuarioService.eliminarUsuarioPorId(id);
         if (usuarioEliminado){
@@ -61,7 +59,7 @@ public class usuarioController {
         }
     }
 
-    @PutMapping("/usuarios/{id}")
+    @PutMapping("/usuarios/{id}") //se usa para actualizar o para reemplazar un recurso existente (PUT).
     public ResponseEntity<Usuario> actualizarUsuario(@PathVariable("id") Integer id, @RequestBody Usuario usr)
     {
         return usuarioRepository.findById(id)
@@ -77,7 +75,7 @@ public class usuarioController {
         }).orElseGet(()-> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/usuarios")
+    @PostMapping("/usuarios") //es usado para la creacion de un nuevo recurso (POST).
     public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario usr){
         Usuario usuarioCreado = usuarioService.guardarUsuario(usr);
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioCreado);

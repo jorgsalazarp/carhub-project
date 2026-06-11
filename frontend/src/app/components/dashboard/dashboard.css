@@ -1,184 +1,288 @@
 :host {
   display: flex;
   flex-direction: column;
+  height: auto;
   min-height: 100vh;
-  background:
-   linear-gradient(135deg, rgba(15,23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%), 
-   url('https://www.c3carecarcenter.com/wp-content/uploads/2025/05/Descubre-la-mejor-concesionaria-de-autos-usados-para-ti-1038x576.webp') no-repeat center center;
-  background-size: cover;
-  color: #f1f5f9;
-  font-family: system-ui, -apple-system, sans-serif;
+
+  /* Solo scroll vertical */
+  overflow-x: hidden;
+  overflow-y: auto !important;
+
+  background: #090d16; /* Azul profundo casi negro, muy elegante */
+  /* Sutil gradiente de luz en la esquina superior */
+  background-image: radial-gradient(circle at top right, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+  color: #f8fafc;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-.dashboard-wrapper {
-  flex: 1 !important;
-  padding: 140px 20px 30px 20px !important;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  position: relative !important;
+.dashboard-carhub {
+  height: auto !important;
+  flex: 1;
+  padding: 40px 30px;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.store-header {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  width: 100% !important;
-  min-height: 90px !important;
-  background-color: rgba(17, 24, 39, 0.75) !important; 
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 12px !important;
-  padding: 15px 30px !important;
-  margin-bottom: 40px !important;
-  box-sizing: border-box !important;
-  position: relative !important;
-  z-index: 9999 !important;
-}
-
-.brand-container {
+/* 🎯 EL HEADER: Estilo Barra Flotante de Alta Gama */
+.dashboard-carhub-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 85px;
+  background: rgba(17, 24, 39, 0.7); /* Capa oscura translúcida */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 15px 35px;
+  margin-bottom: 35px;
+  box-sizing: border-box;
 }
 
-.brand-container h2 { 
-  margin: 0; 
-  font-size: 1.8rem; 
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.logo h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
 }
 
-.brand-container h2 span { 
-  color: #3b82f6; 
+.logo h2 span {
+  color: #2563eb; /* Azul Cobalto Eléctrico */
 }
 
-.subtitle { 
-  margin: 5px 0 0 0; 
-  font-size: 0.9rem; 
-  color: #94a3b8; 
+.tagline {
+  margin: 4px 0 0 0;
+  font-size: 0.8rem;
+  color: #64748b;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.btn-logout {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #f1f5f9;
-  padding: 8px 18px;
-  border-radius: 6px;
-  cursor: pointer;
+/* Indicador de Estado Discreto */
+.estado-sistema {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.status-indicador {
+  width: 7px;
+  height: 7px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #2563eb;
+}
+
+.status-text {
+  font-size: 0.8rem;
   font-weight: 500;
-  transition: all 0.3s ease;
+  color: #93c5fd;
+  letter-spacing: 0.3px;
 }
 
-.btn-logout:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #3b82f6;
+.btn-carhub-logout {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e2e8f0;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.store-layout {
+.btn-carhub-logout:hover {
+  background: #ffffff;
+  color: #090d16;
+  border-color: #ffffff;
+}
+
+/* 🎯 MAQUETACIÓN EN DOS COLUMNAS */
+.carhub-layout {
   display: grid;
-  grid-template-columns: 280px 1fr; 
-  gap: 30px;
+  grid-template-columns: 310px 1fr;
+  gap: 35px;
   align-items: start;
 }
 
-.filters-sidebar {
-  background: rgba(15, 23, 42, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 24px;
-  border-radius: 12px;
+/* PANEL LATERAL DE FILTROS */
+.carhub-busqueda {
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  padding: 28px;
 }
 
-.filters-sidebar h3 { 
-  margin-top: 0; 
-  font-size: 1.15rem; 
-  margin-bottom: 20px; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-  padding-bottom: 10px; 
+.carhub-busqueda h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 12px;
 }
 
-.filter-group { margin-bottom: 24px; }
-.filter-group h4 { margin: 0 0 12px 0; font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
-.filter-group label { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; cursor: pointer; }
+.carhub-filtros {
+  margin-bottom: 28px;
+}
 
-.price-inputs { display: flex; gap: 8px; align-items: center; }
-.price-inputs input { width: 100%; padding: 10px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; color: white; font-size: 0.85rem; }
-.separator { color: #64748b; }
+.carhub-filtros h4 {
+  margin: 0 0 14px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
-.catalog-section { display: flex; flex-direction: column; }
-.section-title { margin-top: 0; font-size: 1.3rem; margin-bottom: 20px; font-weight: 600; }
+.filtros-marca label, 
+.filtros-modelo label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: color 0.2s;
+}
 
-.products-grid {
+.filtros-marca label:hover, 
+.filtros-modelo label:hover {
+  color: #ffffff;
+}
+
+.filtros-marca input[type="checkbox"],
+.filtros-modelo input[type="checkbox"] {
+  accent-color: #2563eb;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+/* Inputs de Rango de Precio */
+.filtros-precio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filtros-precio input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  transition: border-color 0.2s;
+}
+
+.filtros-precio input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.precio-separador {
+  color: #475569;
+  font-weight: 500;
+}
+
+/* 🎯 SECCIÓN DEL CATÁLOGO */
+.carhub-catalogo h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.carhub-autos {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  gap: 30px !important;
 }
 
-.product-card {
-  background: rgba(15, 23, 42, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+/* TARJETAS DE VEHÍCULOS DE LUJO */
+.auto-card {
+  background: rgba(17, 24, 39, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(59, 130, 246, 0.4);
-  background: rgba(15, 23, 42, 0.6);
+.auto-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.3);
+  background: rgba(17, 24, 39, 0.6);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
 }
 
-.product-img-placeholder {
-  height: 140px;
-  background: rgba(15, 23, 42, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
+.auto-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  background-color: #111827; /* Fallback por si la imagen tarda en cargar */
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
-.product-info { 
-  padding: 20px; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 10px; 
-}
-
-.product-info h4 { 
-  margin: 0; 
-  font-size: 1rem; 
-  font-weight: 600; 
-}
-
-.product-info .price { 
-  margin: 0; 
-  font-size: 1.15rem; 
-  color: #3b82f6; 
-  font-weight: 700; 
-}
-
-.btn-details {
-  background: transparent;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  color: #3b82f6;
-  padding: 10px;
-  border-radius: 6px;
+.auto-card h4 {
+  margin: 18px 20px 8px 20px;
+  font-size: 1.05rem;
   font-weight: 600;
+  color: #ffffff;
+}
+
+.auto-card p {
+  margin: 0 20px 18px 20px;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+.btn-carhub-detalles {
+  margin: auto 20px 20px 20px; /* Lo empuja abajo si la card crece */
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  color: #3b82f6;
+  padding: 11px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.3s;
-  margin-top: 5px;
+  transition: all 0.2s;
 }
 
-.btn-details:hover { 
-  background: #3b82f6; 
-  color: white; 
+.btn-carhub-detalles:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
-@media (max-width: 768px) {
-  .store-layout { grid-template-columns: 1fr; }
-  .filters-sidebar { display: none; }
+/* Animación sutil de respiración para el indicador */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.92); }
+}
+.animate-pulse {
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+  .carhub-layout { grid-template-columns: 1fr; }
+  .carhub-busqueda { display: none; } /* Ocultar filtros en móviles para simplificar */
 }
