@@ -1,288 +1,272 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  height: auto;
+  display: block !important;
+  width: 100% !important;
   min-height: 100vh;
-
-  /* Solo scroll vertical */
-  overflow-x: hidden;
-  overflow-y: auto !important;
-
-  background: #090d16; /* Azul profundo casi negro, muy elegante */
-  /* Sutil gradiente de luz en la esquina superior */
-  background-image: radial-gradient(circle at top right, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+  overflow-x: scroll !important;
+  overflow-y: hidden;
+  background: 
+    linear-gradient(rgba(15, 23, 42, 0.9) 0%, rgba(9, 13, 22, 0.96) 100%), 
+    url('https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1470&auto=format&fit=crop') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
   color: #f8fafc;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-.dashboard-carhub {
-  height: auto !important;
-  flex: 1;
-  padding: 40px 30px;
-  max-width: 1440px;
+::-webkit-scrollbar {
+  width: 10px;
+  background: #090d16; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  border: 2px solid #090d16;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+.carhub-contenedor {
+  max-width: 1350px;
   margin: 0 auto;
+  padding: 40px 20px;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* 🎯 EL HEADER: Estilo Barra Flotante de Alta Gama */
-.dashboard-carhub-header {
+app-footer-component {
+  display: block;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: #070a12 !important;
+}
+
+.carhub-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  min-height: 85px;
-  background: rgba(17, 24, 39, 0.7); /* Capa oscura translúcida */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(30, 41, 59, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
-  padding: 15px 35px;
-  margin-bottom: 35px;
-  box-sizing: border-box;
+  padding: 20px 35px;
+  border-radius: 16px;
+  margin-bottom: 25px;
 }
 
-.logo h2 {
+.caja-nuevo h2 {
   margin: 0;
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #ffffff;
 }
 
-.logo h2 span {
-  color: #2563eb; /* Azul Cobalto Eléctrico */
+.caja-nuevo h2 .highlight {
+  color: #3b82f6;
 }
 
-.tagline {
+.subtitulo {
   margin: 4px 0 0 0;
   font-size: 0.8rem;
-  color: #64748b;
-  font-family: 'Courier New', Courier, monospace;
+  color: #94a3b8;
 }
 
-/* Indicador de Estado Discreto */
-.estado-sistema {
+.caja-busqueda {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.2);
+  background: rgba(59, 130, 246, 0.1);
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-.status-indicador {
+.pulsa-punto {
   width: 7px;
   height: 7px;
   background-color: #3b82f6;
   border-radius: 50%;
-  box-shadow: 0 0 10px #2563eb;
+  box-shadow: 0 0 8px #3b82f6;
+  animation: pulse 2s infinite ease-in-out;
 }
 
-.status-text {
+.pulsa-texto {
+  margin: 0;
   font-size: 0.8rem;
-  font-weight: 500;
-  color: #93c5fd;
-  letter-spacing: 0.3px;
+  color: #cbd5e1;
 }
 
-.btn-carhub-logout {
+.btn-cerrar {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #e2e8f0;
-  padding: 10px 22px;
+  color: #f8fafc;
+  padding: 9px 20px;
   border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-carhub-logout:hover {
-  background: #ffffff;
-  color: #090d16;
-  border-color: #ffffff;
-}
-
-/* 🎯 MAQUETACIÓN EN DOS COLUMNAS */
-.carhub-layout {
-  display: grid;
-  grid-template-columns: 310px 1fr;
-  gap: 35px;
-  align-items: start;
-}
-
-/* PANEL LATERAL DE FILTROS */
-.carhub-busqueda {
-  background: rgba(17, 24, 39, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 14px;
-  padding: 28px;
-}
-
-.carhub-busqueda h3 {
-  margin-top: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 25px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  padding-bottom: 12px;
-}
-
-.carhub-filtros {
-  margin-bottom: 28px;
-}
-
-.carhub-filtros h4 {
-  margin: 0 0 14px 0;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.filtros-marca label, 
-.filtros-modelo label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
-  color: #cbd5e1;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.filtros-marca label:hover, 
-.filtros-modelo label:hover {
-  color: #ffffff;
-}
-
-.filtros-marca input[type="checkbox"],
-.filtros-modelo input[type="checkbox"] {
-  accent-color: #2563eb;
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-}
-
-/* Inputs de Rango de Precio */
-.filtros-precio {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.filtros-precio input {
-  width: 100%;
-  padding: 10px 12px;
-  background: #111827;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 0.85rem;
-  transition: border-color 0.2s;
-}
-
-.filtros-precio input:focus {
-  outline: none;
-  border-color: #2563eb;
-}
-
-.precio-separador {
-  color: #475569;
-  font-weight: 500;
-}
-
-/* 🎯 SECCIÓN DEL CATÁLOGO */
-.carhub-catalogo h3 {
-  margin-top: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 25px;
-}
-
-.carhub-autos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
-  gap: 30px !important;
-}
-
-/* TARJETAS DE VEHÍCULOS DE LUJO */
-.auto-card {
-  background: rgba(17, 24, 39, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.auto-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(37, 99, 235, 0.3);
-  background: rgba(17, 24, 39, 0.6);
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
-}
-
-.auto-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  background-color: #111827; /* Fallback por si la imagen tarda en cargar */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.auto-card h4 {
-  margin: 18px 20px 8px 20px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.auto-card p {
-  margin: 0 20px 18px 20px;
-  font-size: 0.95rem;
-  color: #94a3b8;
-}
-
-.btn-carhub-detalles {
-  margin: auto 20px 20px 20px; /* Lo empuja abajo si la card crece */
-  background: rgba(37, 99, 235, 0.06);
-  border: 1px solid rgba(37, 99, 235, 0.25);
-  color: #3b82f6;
-  padding: 11px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.btn-carhub-detalles:hover {
-  background: #2563eb;
+.btn-cerrar:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.dashboard-filtro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 15px 30px;
+  border-radius: 12px;
+  margin-bottom: 45px;
+  flex-wrap: wrap;
+}
+
+.filtro-opciones span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3b82f6;
+  text-transform: uppercase;
+}
+
+.filtro-horizontal, .estado-vehiculo {
+  display: flex;
+  gap: 15px;
+}
+
+.filtro-horizontal label, .estado-vehiculo label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.precio-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.precio-horizontal input {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 7px 14px;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.8rem;
+  width: 170px;
+}
+
+.filtro-divisor {
+  color: rgba(255, 255, 255, 0.1);
+}
+
+.carhub-cabecilla h3 {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+}
+
+.carhub-grid-autos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.tarjeta-auto-individual {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.tarjeta-auto-individual:hover {
+  transform: translateY(-5px);
+  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(30, 41, 59, 0.55);
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 160px;
+  background-color: #0f172a;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carhub-detalles {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+}
+
+.carhub-detalles h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
   color: #ffffff;
-  border-color: #2563eb;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
-/* Animación sutil de respiración para el indicador */
+.carhub-detalles p {
+  margin: 0 0 6px 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+
+.info-precio {
+  font-size: 1.25rem !important;
+  color: #3b82f6 !important;
+  font-weight: 700;
+  margin: 6px 0 !important;
+}
+
+.info-descripcion {
+  font-size: 0.8rem !important;
+  line-height: 1.4;
+  margin-bottom: 15px !important;
+}
+
+.badge-nuevo, .badge-usado {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge-nuevo { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
+.badge-usado { background: rgba(234, 179, 8, 0.15); color: #fde047; }
+
+.btn-ver-auto {
+  margin-top: auto; /* Ancla el botón a la base */
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #3b82f6;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-ver-auto:hover {
+  background: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.92); }
-}
-.animate-pulse {
-  animation: pulse 2.5s infinite ease-in-out;
-}
-
-/* Responsive */
-@media (max-width: 950px) {
-  .carhub-layout { grid-template-columns: 1fr; }
-  .carhub-busqueda { display: none; } /* Ocultar filtros en móviles para simplificar */
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }

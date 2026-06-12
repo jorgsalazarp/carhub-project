@@ -1,93 +1,231 @@
-<div class="dashboard-carhub">
+<div class="carhub-contenedor">
 
-  <header class="dashboard-carhub-header">
-    <div class="logo">
-      <h2>CAR<span>HUB</span></h2>
-      <p class="tagline">// terminal_concesionaria</p>
+  <header class="carhub-header">
+    <div class="caja-nuevo">
+      <h2>CAR<span class="highlight">HUB</span></h2>
+      <p class="subtitulo">Tu nuevo auto te espera</p>
     </div>
 
-    <div class="estado-sistema">
-      <span class ="status-indicador animate-pulse"></span>
-      <span class="status-text">Sistema en línea</span>
+    <div class="caja-busqueda">
+      <span class="pulsa-punto"></span>
+      <p class="pulsa-texto">Sala exhibición</p>
     </div>
 
-    <div class="zona-auth">
-      <button class="btn-carhub-logout" (click)="logout()">Cerrar Sesion</button>
+    <div class="cerrar-sesion">
+      <button class="btn-cerrar" (click)="logout()">Cerrar sesión</button>
     </div>
   </header>
 
-  <main class="carhub-layout">
+  <section class="dashboard-filtro">
+    <div class="filtro-opciones">
+      <span>Filtros:</span>
+    </div>
 
-    <aside class="carhub-busqueda">
-      <h3>Parametros de Busqueda</h3>
+    <div class="filtro-opciones">
+      <div class="filtro-horizontal">
+        <label><input type="checkbox" name="marca" value="toyota">Toyota</label>
+        <label><input type="checkbox" name="marca" value="honda">Honda</label>
+        <label><input type="checkbox" name="marca" value="ford">Ford</label>
+        <label><input type="checkbox" name="marca" value="chevrolet">Chevrolet</label>
+      </div>
 
-      <div class="carhub-filtros">
-        <h4>Marca</h4>
-        <div class="filtros-marca">
-          <label><input type="checkbox" name="marca" value="Toyota"> Toyota</label>
-          <label><input type="checkbox" name="marca" value="Honda"> Honda</label>
-          <label><input type="checkbox" name="marca" value="Ford"> Ford</label>
-          <label><input type="checkbox" name="marca" value="Chevrolet"> Chevrolet</label>
+      <div class="filtro-divisor">|</div>
+
+      <div class="precio-horizontal">
+        <input type="text" placeholder="Precio mínimo: $1.000.000">
+        <span class="precio-separador">-></span>
+        <input type="text" placeholder="Precio máximo: $100.000.000">
+      </div>
+
+      <div class="filtro-divisor">|</div>
+
+      <div class="estado-vehiculo">
+        <label><input type="checkbox" name="estado" value="nuevo">Nuevo</label>
+        <label><input type="checkbox" name="estado" value="usado">Usado</label>
+      </div>
+    </div>
+  </section>
+
+  <main class="carhub-seccion">
+    <div class="carhub-cabecilla">
+      <h3>Modelos a la venta</h3>
+    </div>
+
+    <div class="carhub-grid-autos">
+      
+      <div class="tarjeta-auto-individual">
+        <div class="img-wrapper">
+          <img src="assets/auto1.jpg" alt="">
+        </div>
+        <div class="carhub-detalles">
+          <h4>Toyota Camry</h4>
+          <p class="info-ano">Año: 2022</p>
+          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
+          <p class="info-precio">$25.000.000</p>
+          <p class="info-descripcion">El Toyota Camry 2022 es un sedán elegante y confiable, con un motor potente.</p>
+          <button class="btn-ver-auto">Revisar Auto</button>
         </div>
       </div>
 
-      <div class="carhub-filtros">
-        <h4>Modelo de Vehículo</h4>
-        <div class="filtros-modelo">
-          <label><input type="checkbox" name="modelo" value="Camry"> Camry</label>
-          <label><input type="checkbox" name="modelo" value="Civic"> Civic</label>
-          <label><input type="checkbox" name="modelo" value="F-150"> F-150</label>
-          <label><input type="checkbox" name="modelo" value="Silverado"> Silverado</label>
+      <div class="tarjeta-auto-individual">
+        <div class="img-wrapper">
+          <img src="assets/auto2.jpg" alt="">
+        </div>
+        <div class="carhub-detalles">
+          <h4>Honda Civic</h4>
+          <p class="info-ano">Año: 2018</p>
+          <p class="info-estado">Estado: <span class="badge-usado">Usado</span></p>
+          <p class="info-precio">$3.500.000</p>
+          <p class="info-descripcion">Un hatchback compacto ideal para el día a día urbano, económico y muy dinámico.</p>
+          <button class="btn-ver-auto">Revisar Auto</button>
         </div>
       </div>
 
-      <div class="carhub-filtros">
-        <h4>Precio</h4>
-        <div class="filtros-precio">
-          <input type="text" placeholder="$1.000.000" /> <!--precio minimo-->
-          <span class="precio-separador">//</span>
-          <input type="text" placeholder="$10.000.000" /> <!--precio maximo-->
+      <div class="tarjeta-auto-individual">
+        <div class="img-wrapper">
+          <img src="assets/auto2.jpg" alt="">
+        </div>
+        <div class="carhub-detalles">
+          <h4>Ford Explorer</h4>
+          <p class="info-ano">Año: 2018</p>
+          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
+          <p class="info-precio">$12.500.000</p>
+          <p class="info-descripcion">SUV familiar espaciosa con tracción integral, excelente seguridad y gran confort.</p>
+          <button class="btn-ver-auto">Revisar Auto</button>
         </div>
       </div>
-    </aside>
-    
-    <section class="carhub-catalogo">
-      <h3>Resultados de Búsqueda</h3>
 
-      <div class="resultados">
-        <div class="carhub-autos">
-          <div class="auto-card">
-            <img src="assets/camry.jpg" alt="Toyota Camry">
-            <h4>Toyota Camry</h4>
-            <p>Precio: $3.500.000</p>
-            <button class="btn-carhub-detalles">Ver Detalles</button>
-          </div>
-
-          <div class="auto-card">
-            <img src="assets/civic.jpg" alt="Honda Civic">
-            <h4>Honda Civic</h4>
-            <p>Precio: $2.500.000</p>
-            <button class="btn-carhub-detalles">Ver Detalles</button>
-          </div>
-
-          <div class="auto-card">
-            <img src="assets/f150.jpg" alt="Ford F-150">
-            <h4>Ford F-150</h4>
-            <p>Precio: $3.500.000</p>
-            <button class="btn-carhub-detalles">Ver Detalles</button>
-          </div>
-
-          <div class="auto-card">
-            <img src="assets/silverado.jpg" alt="Chevrolet Silverado">
-            <h4>Chevrolet Silverado</h4>
-            <p>Precio: $4.750.000</p>
-            <button class="btn-carhub-detalles">Ver Detalles</button>
-          </div>
-        
+      <div class="tarjeta-auto-individual">
+        <div class="img-wrapper">
+          <img src="assets/auto2.jpg" alt="">
+        </div>
+        <div class="carhub-detalles">
+          <h4>Chevrolet Montana</h4>
+          <p class="info-ano">Año: 2008</p>
+          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
+          <p class="info-precio">$15.000.000</p>
+          <p class="info-descripcion">Pick-up compacta y versátil, lista para el trabajo diario o escapadas de fin de semana.</p>
+          <button class="btn-ver-auto">Revisar Auto</button>
+        </div>
       </div>
-     </div>
-    </section>
-  </main>
+
+    </div> </main>
+
+</div>
+
+<div class="carhub-contenedor">
+
+  <header class="carhub-header">
+    <div class="caja-nuevo">
+      <h2>CAR<span class="highlight">HUB</span></h2>
+      <p class="subtitulo">Tu nuevo auto te espera</p>
+    </div>
+
+    <div class="caja-busqueda">
+      <span class="pulsa-punto"></span>
+      <p class="pulsa-texto">Sala exhibición</p>
+    </div>
+
+    <div class="cerrar-sesion">
+      <button class="btn-cerrar">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <section class="dashboard-filtro">
+    <div class="filtro-opciones">
+      <span>Filtros:</span>
+    </div>
+
+    <div class="filtro-opciones">
+      <div class="filtro-horizontal">
+        <label><input type="checkbox" name="marca" value="toyota">Toyota</label>
+        <label><input type="checkbox" name="marca" value="honda">Honda</label>
+        <label><input type="checkbox" name="marca" value="ford">Ford</label>
+        <label><input type="checkbox" name="marca" value="chevrolet">Chevrolet</label>
+      </div>
+
+      <div class="filtro-divisor">|</div>
+
+      <div class="precio-horizontal">
+        <input type="text" placeholder="Precio mínimo: $1.000.000">
+        <span class="precio-separador">-></span>
+        <input type="text" placeholder="Precio máximo: $100.000.000">
+      </div>
+
+      <div class="filtro-divisor">|</div>
+
+      <div class="estado-vehiculo">
+        <label><input type="checkbox" name="estado" value="nuevo">Nuevo</label>
+        <label><input type="checkbox" name="estado" value="usado">Usado</label>
+      </div>
+    </div>
+  </section>
+
+  <main class="carhub-seccion">
+    <div class="carhub-cabecilla">
+      <h3>Modelos a la venta</h3>
+    </div>
+
+    <div class="carhub-grid-autos">
+      
+      <div class="tarjeta-auto-individual">
+        <div class="img-wrapper">
+          <img src="assets/auto1.jpg" alt="">
+        </div>
+        <div class="carhub-detalles">
+          <h4>Toyota Camry</h4>
+          <p class="info-ano">Año: 2022</p>
+          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
+          <p class="info-precio">$25.000.000</p>
+          <p class="info-descripcion">El Toyota Camry 2022 es un sedán elegante y confiable, con un motor potente.</p>
+          <button class="btn-ver-auto">Revisar Auto</button>
+        </div>
+      </div>
+
+      <div class="tarjeta-auto-individual">
+        <div class="img-wrapper">
+          <img src="assets/auto2.jpg" alt="Honda Civic">
+        </div>
+        <div class="carhub-detalles">
+          <h4>Honda Civic</h4>
+          <p class="info-ano">Año: 2018</p>
+          <p class="info-estado">Estado: <span class="badge-usado">Usado</span></p>
+          <p class="info-precio">$3.500.000</p>
+          <p class="info-descripcion">Un hatchback compacto ideal para el día a día urbano, económico y muy dinámico.</p>
+          <button class="btn-ver-auto">Revisar Auto</button>
+        </div>
+      </div>
+
+      <div class="tarjeta-auto-individual">
+        <div class="img-wrapper">
+          <img src="assets/auto2.jpg" alt="Ford Explorer">
+        </div>
+        <div class="carhub-detalles">
+          <h4>Ford Explorer</h4>
+          <p class="info-ano">Año: 2018</p>
+          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
+          <p class="info-precio">$12.500.000</p>
+          <p class="info-descripcion">SUV familiar espaciosa con tracción integral, excelente seguridad y gran confort.</p>
+          <button class="btn-ver-auto">Revisar Auto</button>
+        </div>
+      </div>
+
+      <div class="tarjeta-auto-individual">
+        <div class="img-wrapper">
+          <img src="assets/auto2.jpg" alt="Chevrolet Montana">
+        </div>
+        <div class="carhub-detalles">
+          <h4>Chevrolet Montana</h4>
+          <p class="info-ano">Año: 2008</p>
+          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
+          <p class="info-precio">$15.000.000</p>
+          <p class="info-descripcion">Pick-up compacta y versátil, lista para el trabajo diario o escapadas de fin de semana.</p>
+          <button class="btn-ver-auto">Revisar Auto</button>
+        </div>
+      </div>
+
+    </div> </main>
+
 </div>
 
 <app-footer-component></app-footer-component>

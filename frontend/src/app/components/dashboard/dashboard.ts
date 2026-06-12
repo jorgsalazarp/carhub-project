@@ -16,6 +16,6 @@ export class DashboardComponent {
   
     logout(): void {
       localStorage.removeItem('token');
-      this.router.navigate(['/register']);
+      this.router.navigate(['/login']);
   }
 }
