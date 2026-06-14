@@ -29,4 +29,8 @@ public class ventaService {
         return ordenId;
     }
 
+    public String crearVenta(ventaRequest ventaRequest) {
+        throw new UnsupportedOperationException("crearVenta");
+    }
+
 }
