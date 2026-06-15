@@ -1,4 +1,5 @@
 /home/jorji/Documentos/instituto/DUOC/Quinto Semestre/Desarrollo Fullstack 3/carhub-project/carhub-project/backend/ms-usuarios/src/main/java/com/loquendodev/carhub/CarhubApplication.java
+/home/jorji/Documentos/instituto/DUOC/Quinto Semestre/Desarrollo Fullstack 3/carhub-project/carhub-project/backend/ms-usuarios/src/main/java/com/loquendodev/carhub/controllers/baseController.java
 /home/jorji/Documentos/instituto/DUOC/Quinto Semestre/Desarrollo Fullstack 3/carhub-project/carhub-project/backend/ms-usuarios/src/main/java/com/loquendodev/carhub/controllers/usuarioController.java
 /home/jorji/Documentos/instituto/DUOC/Quinto Semestre/Desarrollo Fullstack 3/carhub-project/carhub-project/backend/ms-usuarios/src/main/java/com/loquendodev/carhub/models/entity/Usuario.java
 /home/jorji/Documentos/instituto/DUOC/Quinto Semestre/Desarrollo Fullstack 3/carhub-project/carhub-project/backend/ms-usuarios/src/main/java/com/loquendodev/carhub/repository/UsuarioRepository.java

@@ -1,3 +1,4 @@
+com/loquendodev/carhub/controllers/baseController.class
 com/loquendodev/carhub/CarhubApplication.class
 com/loquendodev/carhub/models/entity/Usuario.class
 com/loquendodev/carhub/services/UsuarioService.class

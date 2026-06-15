@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @CrossOrigin(origins = "http://localhost:4200") //endpoint del frontend, con los permisos para consumir servicios en el backend.
 
 
-public class usuarioController {
+public class usuarioController extends baseController {
 
     private final UsuarioRepository usuarioRepository;
 
