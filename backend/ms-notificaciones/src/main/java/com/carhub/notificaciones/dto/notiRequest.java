@@ -14,7 +14,7 @@ public class notiRequest {
     private String destinatario;
 
     @Schema(description = "Tipo de notificacion", example = "Venta Confirmada", allowableValues = {"Venta Confirmada", "Pago Pendiente", "Pago Rechazado", "Pago Aceptado", "Orden Enviada", "Orden Entregada"})
-    private String tipoNotificacion;
+    private String tipoCorreo;
 
     @Schema(description = "Mensaje notificacion", example = "Orden aprobada, Preparando para envio")
     private String mensaje;
