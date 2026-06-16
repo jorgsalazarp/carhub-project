@@ -6,6 +6,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @AllArgsConstructor
 @Schema(description = "Request para crear una venta")
 public class ventaRequest {
+
+    public ventaRequest() {
+        
+    }
     
     @Schema(description= "Id Cliente", example = "1")
     private String idCliente;

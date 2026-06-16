@@ -30,7 +30,7 @@ public class ventaService {
     }
 
     public String crearVenta(ventaRequest ventaRequest) {
-        throw new UnsupportedOperationException("crearVenta");
+        return this.procesoVenta(ventaRequest);
     }
 
 }
