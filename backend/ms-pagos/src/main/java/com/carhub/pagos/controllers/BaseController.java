@@ -1,4 +1,4 @@
-package com.carhub.pagos.pagos.controllers;
+package com.carhub.pagos.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
