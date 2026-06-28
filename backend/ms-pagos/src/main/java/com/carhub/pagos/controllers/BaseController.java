@@ -1,9 +1,10 @@
 package com.carhub.pagos.controllers;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 public abstract class BaseController {
     protected ResponseEntity<Object> generarRespuesta(HttpStatus status, String mensaje, Object data) {
