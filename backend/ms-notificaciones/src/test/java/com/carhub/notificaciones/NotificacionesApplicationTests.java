@@ -1,4 +1,4 @@
-package com.carhub.notificaciones.notificaciones;
+package com.carhub.notificaciones;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
