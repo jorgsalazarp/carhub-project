@@ -44,3 +44,7 @@ __screenshots__/
 Thumbs.db
 
 /frontend/node_modules/
+
+# Angular cache
+.angular/
+*.tsbuildinfo
