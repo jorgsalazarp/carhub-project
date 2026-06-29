@@ -62,7 +62,7 @@ class ventaControllerTest {
         assertEquals(ordenId, repository.findAll().get(0).getOrdenId());
 
         //swagger leyendo el controller
-        ResponseEntity<String> swaggerResponse = restTemplate.getForEntity("/aapi-docs", String.class);
+        ResponseEntity<String> swaggerResponse = restTemplate.getForEntity("/api-docs", String.class);
         assertEquals(HttpStatus.OK, swaggerResponse.getStatusCode());
         assertTrue(swaggerResponse.getBody().contains("/api/ventas/crearOrden"));
     }

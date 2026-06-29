@@ -1,0 +1,299 @@
+.checkout-contenedor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .compra-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.col-formulario {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 40px;
+}
+
+.col-formulario h2 {
+  font-size: 2rem;
+  margin: 0 0 10px 0;
+  font-weight: 800;
+}
+
+.descripcion-pago {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+.formulario-checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.grupo-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grupo-input label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.grupo-input input {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.grupo-input input:focus {
+  border-color: #3b82f6;
+}
+
+.grupo-doble {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.metodo-pago {
+  margin-top: 10px;
+}
+
+.titulo-pago {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.opciones-pago {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opcion-tarjeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.opcion-tarjeta input {
+  accent-color: #3b82f6;
+}
+
+.btn-confirmar-compra {
+  width: 100%;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.2s;
+}
+
+.btn-confirmar-compra:hover {
+  background: #2563eb;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* --- ESTILOS COLUMNA RESUMEN --- */
+.tarjeta-resumen {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.tarjeta-resumen h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.25rem;
+}
+
+.preview-auto {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.preview-auto img {
+  width: 100px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.preview-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+}
+
+.preview-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.desglose-precios {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.linea-precio {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.total {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 16px;
+  color: white;
+  font-weight: 600;
+}
+
+.precio-final {
+  font-size: 1.3rem;
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+.compra-contenedor {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 40px;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+}
+
+.col-formulario h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.sub-texto {
+  color: #94a3b8;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.form-compra {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.campo input {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+}
+
+.campo input:focus {
+  border-color: #3b82f6;
+}
+
+.btn-finalizar {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.btn-finalizar:hover {
+  background: #2563eb;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-volver {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 15px;
+}
+
+.col-resumen {
+  background: rgba(15, 23, 42, 0.5);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.preview-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.precio-grande {
+  font-size: 1.8rem;
+  color: #3b82f6;
+  font-weight: 800;
+  display: block;
+  margin-top: 20px;
+}

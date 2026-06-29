@@ -1,10 +1,25 @@
-<div class="carhub-contenedor">
-
   <header class="carhub-header">
     <div class="caja-nuevo">
       <h2>CAR<span class="highlight">HUB</span></h2>
       <p class="subtitulo">Tu nuevo auto te espera</p>
     </div>
+  </header>
+
+<div class="carhub-contenedor" *ngIf="!mostrarCheckout">
+
+
+  <compra-auto 
+    *ngIf="mostrarCheckout"
+    [autoCompra]="autoSeleccionado" 
+    (onCancelar)="cancelaCompra()">
+  </compra-auto>
+
+  <mas-detalles
+    *ngIf="mostrarModal"
+    [auto]="autoSeleccionado"
+    (onClose)="cerrarModal()"
+    (onConfirmarCompra)="autoCompra()"> 
+  </mas-detalles>
 
     <div class="caja-busqueda">
       <span class="pulsa-punto"></span>
@@ -14,7 +29,7 @@
     <div class="cerrar-sesion">
       <button class="btn-cerrar" (click)="logout()">Cerrar sesión</button>
     </div>
-  </header>
+
 
   <section class="dashboard-filtro">
     <div class="filtro-opciones">
@@ -55,7 +70,7 @@
       
       <div class="tarjeta-auto-individual">
         <div class="img-wrapper">
-          <img src="assets/auto1.jpg" alt="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRypjkMuVrjTQL0sZWJlZcXDV5xNWSTbRTeblK94k834SKDaIECxz7tsUE&s=10" alt="Toyota Camry">
         </div>
         <div class="carhub-detalles">
           <h4>Toyota Camry</h4>
@@ -63,13 +78,23 @@
           <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
           <p class="info-precio">$25.000.000</p>
           <p class="info-descripcion">El Toyota Camry 2022 es un sedán elegante y confiable, con un motor potente.</p>
-          <button class="btn-ver-auto">Revisar Auto</button>
+          <button class="btn-ver-auto" (click)="abrirDetalles({
+            modelo: 'Toyota Camry',
+            marca: 'Toyota',
+            anio: 2022,
+            estado: 'Nuevo',
+            precio: '$25.000.000',
+            motor: '2.5L 4 Cilindros',
+            combustible: 'Gasolina',
+            descripcion: 'El Toyota Camry 2022 es un sedán elegante y confiable, con un motor potente, excelente habitabilidad y sistemas avanzados de asistencia a la conducción.',
+            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRypjkMuVrjTQL0sZWJlZcXDV5xNWSTbRTeblK94k834SKDaIECxz7tsUE&s=10'
+          })">Revisar Auto</button>
         </div>
       </div>
 
       <div class="tarjeta-auto-individual">
         <div class="img-wrapper">
-          <img src="assets/auto2.jpg" alt="">
+          <img src="https://www.autolist.com/6tuem73u73an/6cJcwhCBW2IKcEIWOgRMjk/b64a9a29edb4a62acdfdd1e50b0ee9db/2018-honda-civic-image-1.jpg" alt="Honda Civic">
         </div>
         <div class="carhub-detalles">
           <h4>Honda Civic</h4>
@@ -77,13 +102,23 @@
           <p class="info-estado">Estado: <span class="badge-usado">Usado</span></p>
           <p class="info-precio">$3.500.000</p>
           <p class="info-descripcion">Un hatchback compacto ideal para el día a día urbano, económico y muy dinámico.</p>
-          <button class="btn-ver-auto">Revisar Auto</button>
+          <button class="btn-ver-auto" (click)="abrirDetalles({
+            modelo: 'Honda Civic',
+            marca: 'Honda',
+            anio: 2018,
+            estado: 'Usado',
+            precio: '$3.500.000',
+            motor: '1.5L Turbo i-VTEC',
+            combustible: 'Gasolina',
+            descripcion: 'Un hatchback compacto ideal para el día a día urbano, económico y muy dinámico. Ofrece una estética deportiva y una excelente reventa en el mercado.',
+            imagen: 'https://www.autolist.com/6tuem73u73an/6cJcwhCBW2IKcEIWOgRMjk/b64a9a29edb4a62acdfdd1e50b0ee9db/2018-honda-civic-image-1.jpg'
+          })">Revisar Auto</button>
         </div>
       </div>
 
       <div class="tarjeta-auto-individual">
         <div class="img-wrapper">
-          <img src="assets/auto2.jpg" alt="">
+          <img src="https://storage.googleapis.com/fotosautos/automotora/AUTOMOVAL/947/1210113/FORD-EXPLORER-hywlma.webp" alt="Ford Explorer">
         </div>
         <div class="carhub-detalles">
           <h4>Ford Explorer</h4>
@@ -91,141 +126,52 @@
           <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
           <p class="info-precio">$12.500.000</p>
           <p class="info-descripcion">SUV familiar espaciosa con tracción integral, excelente seguridad y gran confort.</p>
-          <button class="btn-ver-auto">Revisar Auto</button>
+          <button class="btn-ver-auto" (click)="abrirDetalles({
+            modelo: 'Ford Explorer',
+            marca: 'Ford',
+            anio: 2018,
+            estado: 'Nuevo',
+            precio: '$12.500.000',
+            motor: '2.3L EcoBoost',
+            combustible: 'Gasolina',
+            descripcion: 'SUV familiar espaciosa con tracción integral, excelente seguridad y gran confort. Cuenta con 3 filas de asientos ideales para viajes largos con comodidad premium.',
+            imagen: 'https://storage.googleapis.com/fotosautos/automotora/AUTOMOVAL/947/1210113/FORD-EXPLORER-hywlma.webp'
+          })">Revisar Auto</button>
         </div>
       </div>
 
       <div class="tarjeta-auto-individual">
         <div class="img-wrapper">
-          <img src="assets/auto2.jpg" alt="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRamElNODcvGwA6Z2PABGMpqydAMbKBxfp000jBQuE5W0uFxCW2rCWt96-n&s=10" alt="Chevrolet Montana">
         </div>
         <div class="carhub-detalles">
           <h4>Chevrolet Montana</h4>
           <p class="info-ano">Año: 2008</p>
-          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
-          <p class="info-precio">$15.000.000</p>
-          <p class="info-descripcion">Pick-up compacta y versátil, lista para el trabajo diario o escapadas de fin de semana.</p>
-          <button class="btn-ver-auto">Revisar Auto</button>
-        </div>
-      </div>
-
-    </div> </main>
-
-</div>
-
-<div class="carhub-contenedor">
-
-  <header class="carhub-header">
-    <div class="caja-nuevo">
-      <h2>CAR<span class="highlight">HUB</span></h2>
-      <p class="subtitulo">Tu nuevo auto te espera</p>
-    </div>
-
-    <div class="caja-busqueda">
-      <span class="pulsa-punto"></span>
-      <p class="pulsa-texto">Sala exhibición</p>
-    </div>
-
-    <div class="cerrar-sesion">
-      <button class="btn-cerrar">Cerrar sesión</button>
-    </div>
-  </header>
-
-  <section class="dashboard-filtro">
-    <div class="filtro-opciones">
-      <span>Filtros:</span>
-    </div>
-
-    <div class="filtro-opciones">
-      <div class="filtro-horizontal">
-        <label><input type="checkbox" name="marca" value="toyota">Toyota</label>
-        <label><input type="checkbox" name="marca" value="honda">Honda</label>
-        <label><input type="checkbox" name="marca" value="ford">Ford</label>
-        <label><input type="checkbox" name="marca" value="chevrolet">Chevrolet</label>
-      </div>
-
-      <div class="filtro-divisor">|</div>
-
-      <div class="precio-horizontal">
-        <input type="text" placeholder="Precio mínimo: $1.000.000">
-        <span class="precio-separador">-></span>
-        <input type="text" placeholder="Precio máximo: $100.000.000">
-      </div>
-
-      <div class="filtro-divisor">|</div>
-
-      <div class="estado-vehiculo">
-        <label><input type="checkbox" name="estado" value="nuevo">Nuevo</label>
-        <label><input type="checkbox" name="estado" value="usado">Usado</label>
-      </div>
-    </div>
-  </section>
-
-  <main class="carhub-seccion">
-    <div class="carhub-cabecilla">
-      <h3>Modelos a la venta</h3>
-    </div>
-
-    <div class="carhub-grid-autos">
-      
-      <div class="tarjeta-auto-individual">
-        <div class="img-wrapper">
-          <img src="assets/auto1.jpg" alt="">
-        </div>
-        <div class="carhub-detalles">
-          <h4>Toyota Camry</h4>
-          <p class="info-ano">Año: 2022</p>
-          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
-          <p class="info-precio">$25.000.000</p>
-          <p class="info-descripcion">El Toyota Camry 2022 es un sedán elegante y confiable, con un motor potente.</p>
-          <button class="btn-ver-auto">Revisar Auto</button>
-        </div>
-      </div>
-
-      <div class="tarjeta-auto-individual">
-        <div class="img-wrapper">
-          <img src="assets/auto2.jpg" alt="Honda Civic">
-        </div>
-        <div class="carhub-detalles">
-          <h4>Honda Civic</h4>
-          <p class="info-ano">Año: 2018</p>
           <p class="info-estado">Estado: <span class="badge-usado">Usado</span></p>
-          <p class="info-precio">$3.500.000</p>
-          <p class="info-descripcion">Un hatchback compacto ideal para el día a día urbano, económico y muy dinámico.</p>
-          <button class="btn-ver-auto">Revisar Auto</button>
-        </div>
-      </div>
-
-      <div class="tarjeta-auto-individual">
-        <div class="img-wrapper">
-          <img src="assets/auto2.jpg" alt="Ford Explorer">
-        </div>
-        <div class="carhub-detalles">
-          <h4>Ford Explorer</h4>
-          <p class="info-ano">Año: 2018</p>
-          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
-          <p class="info-precio">$12.500.000</p>
-          <p class="info-descripcion">SUV familiar espaciosa con tracción integral, excelente seguridad y gran confort.</p>
-          <button class="btn-ver-auto">Revisar Auto</button>
-        </div>
-      </div>
-
-      <div class="tarjeta-auto-individual">
-        <div class="img-wrapper">
-          <img src="assets/auto2.jpg" alt="Chevrolet Montana">
-        </div>
-        <div class="carhub-detalles">
-          <h4>Chevrolet Montana</h4>
-          <p class="info-ano">Año: 2008</p>
-          <p class="info-estado">Estado: <span class="badge-nuevo">Nuevo</span></p>
           <p class="info-precio">$15.000.000</p>
           <p class="info-descripcion">Pick-up compacta y versátil, lista para el trabajo diario o escapadas de fin de semana.</p>
-          <button class="btn-ver-auto">Revisar Auto</button>
+          <button class="btn-ver-auto" (click)="abrirDetalles({
+            modelo: 'Chevrolet Montana',
+            marca: 'Chevrolet',
+            anio: 2008,
+            estado: 'Usado',
+            precio: '$15.000.000',
+            motor: '1.8L Flex',
+            combustible: 'Bencina/Gasolina',
+            descripcion: 'Pick-up compacta y versátil, lista para el trabajo diario o escapadas de fin de semana. Destaca por su bajo costo de mantenimiento y excelente capacidad de carga.',
+            imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRamElNODcvGwA6Z2PABGMpqydAMbKBxfp000jBQuE5W0uFxCW2rCWt96-n&s=10'
+          })">Revisar Auto</button>
         </div>
       </div>
 
-    </div> </main>
-
+    </div> 
+  </main>
 </div>
 
-<app-footer-component></app-footer-component>
+<app-footer-component *ngIf="!mostrarCheckout"></app-footer-component>
+
+<mas-detalles
+  *ngIf="mostrarModal"
+  [auto]="autoSeleccionado"
+  (onClose)="cerrarModal()">
+</mas-detalles>

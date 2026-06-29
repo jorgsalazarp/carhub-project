@@ -1,0 +1,84 @@
+<div class="checkout-contenedor">
+    <div class="compra-layout">
+
+        <div class="formulario">
+            <h2>Finalizar Compra</h2>
+            <p class="descripcion-pago">Añade tus datos aqui para procesar la adquisicion de tu vehiculo</p>
+
+            <form class="formulario-checkout">
+                <div class="grupo-input">
+                    <label>Nombre Completo</label>
+                    <input type="text" placeholder="Juan Perez">
+                </div>
+                
+                <div class="grupo-input">
+                    <label>Correo Electronico</label>
+                    <input type="text" placeholder="juan.perez@gmail.com">
+                </div>
+
+                <div class="grupo-doble">
+                    <div class="grupo-input">
+                        <label>RUT / Identificacion</label>
+                        <input type="text" placeholder="12.345.678-9">
+                    </div>
+                    <div class="grupo-input">
+                        <label>Numero Telefonico</label>
+                        <input type="tel" placeholder="+56 9 1234 5678">
+                    </div>
+                </div>
+
+                <div class="metodo-pago">
+                    <label class="titulo-pago">Metodo de Pago</label>
+                    <div class="opciones-pago">
+                        <label class="opcion-tarjeta">
+                            <input type="radio" name="pago" value="credito" checked>
+                            <span>Tarjeta de Credito / Debito</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="pago" value="transferencia">
+                            <span>Transferencia Bancaria</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="pago" value="efectivo">
+                            <span>Efectivo</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-confirmar-compra">Confirmar compra de Vehiculo</button>
+            </form>
+        </div>
+
+        <div class="col-resumen" *ngIf="autoCompra">
+            <div class="tarjeta-resumen">
+                <h3>Resumen del Pedido</h3>
+
+                <div class="vista-previa-auto">
+                    <img [src]="autoCompra.imagen" [alt]="autoCompra.modelo">
+                    <div class="vista-previa-info">
+                        <h4>{{ autoCompra.modelo }}</h4>
+                        <p>Año: {{ autoCompra.anio }} | Estado: {{ autoCompra.estado }}</p>
+                    </div>
+                </div>
+
+                <div class="desglose-precios">
+                    <div class="linea-precio">
+                        <span>Valor Vehiculo</span>
+                        <span>{{ autoCompra.precio }}</span>
+                    </div>
+                    
+                    <div class="linea-precio">
+                        <span>Gastos de Transferencia</span>
+                        <span>Incluidos</span>
+                    </div>
+
+                    <div class="linea-precio total">
+                        <span>Total a Pagar</span>
+                        <span class="precio-final">{{ autoCompra.precio }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="modal-backdrop" (click)="cerrar()">
+    <div class="modal-contenido" (click)="$event.stopPropagation()">
+        
+        <div class="modal-header-bar">
+            <h2>{{ auto.modelo }}</h2>
+            <button class="btn-cerrar-x" (click)="cerrar()">&times;</button>
+        </div>
+
+        <div class="modal-body-layout" *ngIf="auto">
+            
+            <div class="modal-col-visual">
+                <div class="modal-img-container">
+                    <img [src]="auto.imagen" [alt]="auto.modelo">
+                </div>
+                <div class="modal-price-box">
+                    <p class="modal-price">{{ auto.precio }}</p>
+                </div>
+            </div>
+
+            <div class="modal-col-info">
+                <h3>Información del Vehículo</h3>
+                
+                <div class="modal-specs-grid">
+                    <div class="spec-item"><strong>Año: </strong> {{ auto.anio }}</div>
+                    <div class="spec-item"><strong>Estado: </strong> {{ auto.estado }}</div>
+                    <div class="spec-item"><strong>Motor: </strong> {{ auto.motor }}</div>
+                    <div class="spec-item"><strong>Combustible: </strong>{{ auto.combustible }}</div>
+                </div>
+
+                <div class="modal-description">
+                    <h4>Ficha Informativa</h4>
+                    <p>{{ auto.descripcion }}</p>
+                </div>
+
+                <div class="modal-actions-bar">
+                    <button class="btn-comprar" (click)="confirmarCompra()">Comprar Vehículo</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
